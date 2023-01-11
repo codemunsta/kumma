@@ -1,0 +1,102 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting</title>
+    <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'voting.css' %}">
+
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+</head>
+<body>
+    <div class="content-wrapper">
+        <header class="wrapper border-bottom">
+            <nav class=" navbar-expand-lg extended navbar-light navbar-bg-light caret-none">
+                <div class="container flex-lg-column">
+                  <div class="topbar d-flex flex-row w-100 justify-content-between align-items-center">
+                    <div class="navbar-brand"><a href="#"><img src="{% static 'assets/img/logo-dark.png' %}" srcset="{% static 'assets/img/logo-dark@2x.png 2x' %}" alt="" /></a></div>
+                    <div class="navbar-other ms-auto">
+                      <ul class="navbar-nav flex-row align-items-center">
+                        <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-info"><i class="uil uil-info-circle"></i></a></li>
+                        <li class="nav-item dropdown language-select text-uppercase border">
+                          <a class="nav-link dropdown-item dropdown-toggle py-2 fw-normal" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">En</a>
+                          <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="dropdown-item" href="#">En</a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="#">De</a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="#">Es</a></li>
+                          </ul>
+                        </li>
+                        <li class="nav-item d-lg-none">
+                          <button class="hamburger offcanvas-nav-btn"><span></span></button>
+                        </li>
+                      </ul>
+                      <!-- /.navbar-nav -->
+                    </div>
+                    <!-- /.navbar-other -->
+                  </div>
+                  <!-- /.d-flex -->
+                </div>
+                <!-- /.container -->
+              </nav>
+        </header>
+        <div class="wrapper hero-upper mb-5">
+            <div class="container main-up">
+                <ul>
+                    <li>Ballot</li>
+                    <i class="uil uil-angle-right-b fs-18"></i>
+                    <li class="text-danger">Review</li>
+                    <i class="uil uil-angle-right-b fs-18"></i>
+                    <li>Confirmation</li>
+                </ul>
+            </div>
+            <div class="container hero-up-img mt-8">
+                <img src="{% static 'images/Uniben-Logo.png' %}" alt="uniben-img">
+                <h2 class="mb-0 mt-5">University of Benin</h2>
+                <p class="mb-0">E-voting system</p>
+            </div>
+        </div>
+
+        <section id="section-2" class="wrapper mb-12 allSection">
+            <div class="container">
+                <div class="bg-soft-orange p-3 border-start border-danger border-2">
+                    <p class="fs-18 mb-0">Finalize your choice by selecting <strong>Submit</strong>. To make changes, select <strong>Edit</strong> </p>
+                </div>
+                <form method="post" action="{% url 'confirmed' %}">
+                    {% csrf_token %}
+                    {% for vote in votes %}
+                        <div class="mt-5">
+                            <h3 class="mb-1 fw-bold">{{vote.position}}</h3>
+                            <p class="mb-0 bg-gray p-2 fw-normal">{{vote.candidate.firstname}} {{vote.candidate.lastname}}</p>
+                        </div>
+                    {% endfor %}
+                    <div class="mt-5">
+                        <h3 class="mb-1 fw-bold">Confirm your selection</h3>
+                        <p class="mb-0 bg-gray p-2 fw-normal">Yes- I APPROVE the above selected</p>
+                        <div class="mt-2 main-checkbox">
+                            <input class="form-check-input border-dark border-2" name="approve" type="checkbox" value="" id="flexCheckDefault" required>
+                        </div>
+                    </div>
+                    <div class="container mt-5 d-flex justify-content-between">
+                        <a href="{% url 'votes' %}">
+                            <button type="button" class="btn btn-info bt-lg" data-section-id="1">
+                                <i class="uil uil-angle-double-left"></i>
+                                Edit
+                            </button>
+                        </a>
+                        <input type="submit" class="btn btn-danger bt-lg" data-section-id="1" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+    <script src="{% static 'profile-voting.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'assets/js/plugins.js' %}"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+</body>
+</html>

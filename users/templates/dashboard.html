@@ -1,0 +1,94 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'voting.css' %}">
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+</head>
+<body class="bg-soft-primary">
+    <div id="main-user-container" class="content-wrapper main-user-container wrapper">
+        <div class="user-content">
+            <div class="user">
+                <header class="">
+                    <nav class="navbar navbar-expand-lg center-nav transparent navbar-light py-3">
+                      <div class="container flex-lg-row flex-nowrap align-items-center">
+                        <div class="navbar-brand w-100">
+                          <a href="{% url 'index'%}">
+                            <img src="{% static 'assets/img/logo-dark.png' %}" srcset="{% static 'assets/img/logo-dark@2x.png 2x' %}" alt="" />
+                          </a>
+                        </div>
+                        <div class="navbar-other w-100 d-flex ms-auto">
+                            <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
+                                <li class="nav-item d-none d-md-block">
+                                    <a href="{% url 'index'%}" class="btn btn-light text-dark rounded-pill border border-dark">Home</a>
+                                    <a href="{% url 'logout' %}" class="btn btn-dark text-light rounded-pill border border-dark" target="">Logout</a>
+                                </li>
+                                <li class="nav-item d-lg-none">
+                                    <div class="navbar-hamburger"><button class="hamburger animate plain" data-toggle="offcanvas-nav"><span></span></button></div>
+                                </li>
+                            </ul>
+                            <!-- /.navbar-nav -->
+                          </div>
+                      </div>
+                    </nav>
+                    <!-- /.navbar -->
+                </header>
+                <section class="container mt-10 mb-5 user_profile">
+                    <div class="row">
+                        <aside class="col-md-3">
+                            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                <img class="rounded-circle mt-5" width="150px" src="{% static 'images/user-profile-vot.webp' %}"><span class="font-weight-bold">{{object.firstname}} {{object.lastname}}</span><span class="text-black-50">{{object.uniben_email}}</span><span></span>
+                            </div>
+                            <div class="d-flex flex-column align-items-center text-center user-guide">
+                                <p class="user-guide mb-0"><i class="uil uil-file-alt"></i>Guide</p>
+                                <p><span>&copy;</span>2022 E-voting system</p>
+                            </div>
+                            <div class="text-center align-items-center mt-5">
+                                <a class="btn btn-lg btn-primary me-2 scroll w-auto" href="{% url 'votes' %}">Vote Now</a>
+                            </div>
+                        </aside>
+                        <div class="col-md-9">
+                            <div class="p-3 py-5">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h2 class="user-h2">PROFILE</h2>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-3"><label class="user-label">First Name</label><h3>{{object.firstname}}</h3></div>
+                                    <div class="col-md-3"><label class="user-label">Last Name</label><h3>{{object.lastname}}</h3></div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12"><label class="user-label">Gender</label><h3>M</h3></div>
+                                    <div class="col-md-12"><label class="user-label">Mat No.</label><h3>{{object.mat_no}}</h3></div>
+                                    <div class="col-md-12"><label class="user-label">Faculty</label><h3>{{faculty.name}}</h3></div>
+                                    <div class="col-md-12"><label class="user-label">Department</label><h3>{{department.name}}</h3></div>
+                                    <div class="col-md-12"><label class="user-label">Level</label><h3>400</h3></div>
+                                </div>
+                            </div>
+                            <!-- <div class="">
+                                <button type="button" class="btn btn-primary btn-lg w-auto">Vote Now</button>
+                            </div> -->
+
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+
+        </div>
+
+    </div>
+
+<!-- <script src="/assets/js/plugins.js"></script> -->
+<script src="{% static 'assets/js/theme.js' %}"></script>
+
+</body>
+</html>
+
+

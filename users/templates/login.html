@@ -1,0 +1,128 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'voting.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css'%}">
+
+    <!-- Iconscout icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+<body>
+    <section class="main-container">
+        <div class="login-container">
+            <div class="login-forms">
+                <div class="form login">
+                    <span class="title">Login</span>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="input-field">
+                            <input type="text" class="" name="mat_number" placeholder="Mat number" required>
+                            <i class="uil uil-envelope icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" class="password" name="password" placeholder="Password" required>
+                            <i class="uil uil-lock icon"></i>
+                            <i class="uil uil-eye-slash showHidePw"></i>
+                        </div>
+
+                        <div class="checkbox-text">
+                            <div class="checkbox-content">
+                                <input class="form-check-input" type="checkbox" value="" id="logCheck" aria-label="Checkbox for following text input">
+                                <label for="logCheck" class="text">Remember Me</label>
+                            </div>
+                        </div>
+
+                        <div class="input-field button">
+                            <input type="submit" value="Login Now">
+                        </div>
+                    </form>
+
+                    <div class="login-signup">
+                        <span class="text">Not a member?
+                            <a href="{% url 'register' %}" class="text signup-text">Signup</a>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- <div class="form login">
+                    <span class="title">Registration</span>
+
+                    <form action="#">
+                        <div class="input-field">
+                            <input type="text" class="" placeholder="Enter First name" required>
+                            <i class="uil uil-user icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" class="" placeholder="Enter Last name" required>
+                            <i class="uil uil-user icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" class="" placeholder="Mat no" required>
+                            <i class="uil uil-user icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" class="" placeholder="Uniben Email address" required>
+                            <i class="uil uil-envelope icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" class="password" placeholder="Password" required>
+                            <i class="uil uil-lock icon"></i>
+                            <i class="uil uil-eye-slash showHidePw"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" class="password" placeholder=" Confirm Password" required>
+                            <i class="uil uil-lock icon"></i>
+                            <i class="uil uil-eye-slash showHidePw"></i>
+                        </div>
+
+                        <div class="input-field button">
+                            <input type="button" value="SIgn Up">
+                        </div>
+                    </form>
+
+                    <div class="login-signup">
+                        <span class="text">A member?
+                            <a href="#" class="text signup-text">Login Now</a>
+                        </span>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+    </section>
+    <!-- <footer class="bg-dark text-inverse footer-prof">
+        <div class="container py-8 py-md-6">
+          <div class="row gy-6 gy-lg-0">
+            <div class="col-md-12 col-lg-9">
+              <div class="widget">
+                <h1 class="widget-title text-white mb-3">Your Number One Choice for Secure Voting</h1>
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, repellat.</p>
+
+
+              </div>
+
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <a href="#" class="btn btn-blue rounded-pill mt-2 mb-0 w-20">Vote Now</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+    </footer> -->
+
+    <script src="{% static 'profile-voting.js' %}"></script>
+
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+    <script src="{% static 'assets/js/plugins.js' %}"></script>
+
+</body>
+</html>

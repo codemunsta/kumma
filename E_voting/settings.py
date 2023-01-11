@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-548ka*32m$mdf6x5ltw72dy2)8huwhfcef@0@q-%)+lfo*@_kc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'cloudinary',
     'cloudinary_storage',
-    'users'
+    'users',
+    'voting',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,109 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="{% static 'voting.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+    <!-- Iconscout icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+<body>
+    <section class="main-container">
+        <div class="login-container">
+            <div class="login-forms">
+
+                <div class="form login">
+                    <span class="title">Registration</span>
+
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="input-field">
+                            <input type="text" class="" name="firstname" placeholder="Enter First name" required>
+                            <i class="uil uil-user icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" class="" name="lastname" placeholder="Enter Last name" required>
+                            <i class="uil uil-user icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="file" class="" name="school_fees" required>
+                            <i class="uil uil-user icon"></i>
+                        </div>
+                        <div>
+                            <label for="department" class="form-label">Department</label>
+                            <select class="form-select my-3" id="department" name="department" aria-label="Default select example">
+                              <option selected>Select Department</option>
+                              {% for department in departments %}
+                                <option value="{{department.id}}">{{department.name}}</option>
+                              {% endfor %}
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" class="" name="mat_number" placeholder="Mat no" required>
+                            <i class="uil uil-user icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" class="" name="email" placeholder="Uniben Email address" required>
+                            <i class="uil uil-envelope icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" class="password" name="password" placeholder="Password" required>
+                            <i class="uil uil-lock icon"></i>
+                            <i class="uil uil-eye-slash showHidePw"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" class="password" name="password2" placeholder=" Confirm Password" required>
+                            <i class="uil uil-lock icon"></i>
+                            <i class="uil uil-eye-slash showHidePw"></i>
+                        </div>
+
+                        <div class="input-field button">
+                            <input type="submit" value="SIgn Up">
+                        </div>
+                    </form>
+
+                    <div class="login-signup">
+                        <span class="text">A member?
+                            <a href="{% url 'login' %}" class="text signup-text">Login Now</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- <footer class="bg-dark text-inverse footer-prof">
+        <div class="container py-8 py-md-6">
+          <div class="row gy-6 gy-lg-0">
+            <div class="col-md-12 col-lg-9">
+              <div class="widget">
+                <h1 class="widget-title text-white mb-3">Your Number One Choice for Secure Voting</h1>
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, repellat.</p>
+
+
+              </div>
+
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <a href="#" class="btn btn-blue rounded-pill mt-2 mb-0 w-20">Vote Now</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+    </footer> -->
+
+    <script src="{% static 'profile-voting.js' %}"></script>
+
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+    <script src="{% static 'assets/js/plugins.js' %}"></script>
+
+</body>
+</html>

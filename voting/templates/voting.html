@@ -1,0 +1,144 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting</title>
+    <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'voting.css' %}">
+
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+</head>
+<body>
+    <div class="content-wrapper">
+        <header class="wrapper border-bottom">
+            <nav class=" navbar-expand-lg extended navbar-light navbar-bg-light caret-none">
+                <div class="container flex-lg-column">
+                  <div class="topbar d-flex flex-row w-100 justify-content-between align-items-center">
+                    <div class="navbar-brand"><a href="index.html"><img src="{% static 'assets/img/logo-dark.png' %}" srcset="{% static 'assets/img/logo-dark@2x.png 2x' %}" alt="" /></a></div>
+                    <div class="navbar-other ms-auto">
+                      <ul class="navbar-nav flex-row align-items-center">
+                        <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-info"><i class="uil uil-info-circle"></i></a></li>
+                        <li class="nav-item dropdown language-select text-uppercase border">
+                          <a class="nav-link dropdown-item dropdown-toggle py-2 fw-normal" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">En</a>
+                          <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="dropdown-item" href="#">En</a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="#">De</a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="#">Es</a></li>
+                          </ul>
+                        </li>
+                        <li class="nav-item d-lg-none">
+                          <button class="hamburger offcanvas-nav-btn"><span></span></button>
+                        </li>
+                      </ul>
+                      <!-- /.navbar-nav -->
+                    </div>
+                    <!-- /.navbar-other -->
+                  </div>
+                  <!-- /.d-flex -->
+                </div>
+                <!-- /.container -->
+              </nav>
+        </header>
+        <div class="wrapper hero-upper mb-5">
+            <div class="container main-up">
+                <ul>
+                    <li class="text-danger">Ballot</li>
+                    <i class="uil uil-angle-right-b fs-18"></i>
+                    <li>Review</li>
+                    <i class="uil uil-angle-right-b fs-18"></i>
+                    <li>Confirmation</li>
+                </ul>
+            </div>
+            <div class="container hero-up-img mt-8">
+                <img src="{% static 'images/Uniben-Logo.png' %}" alt="uniben-img">
+                <h2 class="mb-0 mt-5">University of Benin</h2>
+                <p class="mb-0">E-voting system</p>
+            </div>
+        </div>
+
+        <section id="section-1" class="wrapper voting-main-pg firstTimeLoad mb-12">
+            <form method="post">
+                {% csrf_token %}
+                <div class="container mt-8 midd">
+                {% for poll in polls %}
+                    <div class="container">
+                        <p class="mb-2">Your choices are secure and can not be accessed by the adminstrator</p>
+                        <div class="middle-sec bg-soft-primary p-4 mb-15 border-top border-bottom border-2">
+                            <div>
+                                <h2 class="fw-normal mb-5">{{poll.position.title}}</h2>
+                                <p class="mb-1">Select One choice.</p>
+                                <p class="mb-1">If you don't want to vote select abstain.</p>
+                                <p>Choices are listed in random order.</p>
+
+                                <div class="border border-2">
+                                    <div class="border border-1 p-2 bg-gray">
+                                        <h2 class="mb-0 fw-light">Candidates</h2>
+                                    </div>
+                                    <div class="main-content-lg bg-light">
+                                        {% for candidate in poll.candidates%}
+                                            <div class="main-content-md py-3">
+                                                <div class="imgs ps-5">
+                                                    <img src="" alt="" class="rounded-circle w-13 h-13">
+                                                    <div class="ms-3 py-2">
+                                                        <h3 class="mb-0 fw-light">{{candidate.firstname}} {{candidate.lastname}}</h3>
+                                                        <a href="#" class="text-primary" data-bs-toggle="modal" data-bs-target="#modal-{{candidate.id}}"><u>Information</u></a>
+                                                    </div>
+
+                                                </div>
+                                                <div class="mt-3 pe-12 main-checkbox">
+                                                    <input class="form-check-input border-grey border-2" type="radio" name="{{poll.position.title}}" value="{{candidate.id}}" id="{{candidate.id}}">
+                                                </div>
+                                            </div>
+                                            <div class="modal fade" id="modal-{{candidate.id}}" tabindex="-1">
+                                                <div class="modal-dialog modal-dialog-centered modal-md">
+                                                  <div class="modal-content text-center">
+                                                    <div class="modal-body">
+                                                      <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                      <div class="row">
+                                                        <div class="col-md-10 offset-md-1">
+                                                          <figure class="mb-6"><img src="{% static 'images/Uniben-Logo.png' %}" srcset="" alt="" /></figure>
+                                                        </div>
+                                                        <!-- /column -->
+                                                      </div>
+                                                      <!-- /.row -->
+                                                      <h2>Brief Info about Candidates</h2>
+                                                      <p class="mb-6">{{candidate.about}}</p>
+                                                      <!-- /.row -->
+                                                    </div>
+                                                    <!--/.modal-body -->
+                                                  </div>
+                                                  <!--/.modal-content -->
+                                                </div>
+                                                <!--/.modal-dialog -->
+                                            </div>
+                                        {% endfor %}
+                                        <div class="main-content-md py-3">
+                                            <div class="imgs ps-5">
+                                                <h3 class="fw-normal">Abstain</h3>
+                                            </div>
+                                            <div class="mt-3 pe-12 main-checkbox"><input class="form-check-input border-grey border-2" type="radio" name="{{poll.position.title}}" value="abstain" id="flexCheckDefault"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="container mt-5 d-flex justify-content-end pe-12">
+                    <input type="submit" class="btn btn-danger bt-lg" data-section-id="1" value="Submit">
+                </div>
+            </form>
+        </section>
+    </div>
+    <script src="{% static 'profile-voting.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'assets/js/plugins.js' %}"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+</body>
+</html>

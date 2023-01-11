@@ -1,0 +1,366 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'voting.css' %}">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <div class="content-wrapper">
+        <header class="wrapper shadow-lg">
+            <nav class="navbar navbar-expand-lg center-nav transparent navbar-light">
+              <div class="container flex-lg-row flex-nowrap align-items-center">
+                <div class="navbar-brand w-100">
+                  <a href="{% url 'index' %}">
+                    <img src="{% static 'assets/img/logo-dark.png' %}" srcset="{% static 'assets/img/logo-dark@2x.png 2x' %}" alt="" />
+                  </a>
+                </div>
+                <div class="navbar-collapse offcanvas-nav">
+                  <div class="offcanvas-header d-lg-none d-xl-none">
+                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/logo-light.png' %}" srcset="{% static 'assets/img/logo-light@2x.png 2x' %}" alt="" /></a>
+                    <button type="button" class="btn-close btn-close-white offcanvas-close offcanvas-nav-close" aria-label="Close"></button>
+                  </div>
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#feature">Feature</a>
+                      <!--/.dropdown-menu -->
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link" href="#solution">Solution</a>
+
+                    </li>
+                  </ul>
+                  <!-- /.navbar-nav -->
+                </div>
+                <!-- /.navbar-collapse -->
+                <div class="navbar-other w-100 d-flex ms-auto">
+                    <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
+                        <li class="nav-item d-none d-md-block">
+                            <a href="{% url 'login' %}" class="btn btn-light text-dark rounded-pill border border-dark">Login</a>
+                            <a href="{% url 'register' %}" class="btn btn-primary rounded-pill">Register</a>
+                        </li>
+                        <li class="nav-item d-lg-none">
+                            <div class="navbar-hamburger"><button class="hamburger animate plain" data-toggle="offcanvas-nav"><span></span></button></div>
+                        </li>
+                    </ul>
+                    <!-- /.navbar-nav -->
+                  </div>
+                <!-- /.offcanvas-info -->
+              </div>
+              <!-- /.container -->
+            </nav>
+            <!-- /.navbar -->
+        </header>
+
+        <section id="hero" class="wrapper hero mb-5">
+            <div class="container pt-10 pt-md-14 pb-8 text-center">
+                <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                    <div class="col-md-10 offset-md-1 offset-lg-0 col-lg-5 text-center text-lg-start mt-18 sm-mt-0">
+                      <h1 class="display-1 mb-5 mx-md-n5 mx-lg-0 text-light fs-52">Electronic-Voting System.</h1>
+                      <p class="lead fs-lg mb-7 text-light">An online voting system with your needs at the forefront.</p>
+                    </div>
+                  <!-- /column -->
+                </div>
+                <!-- /.row -->
+            </div>
+        </section>
+
+        <section class="wrapper info">
+            <div class="container pt-12 pt-lg-8 pb-14 pb-md-17">
+              <div class="row text-center">
+                <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                  <h3 class="display-3 mb-10 px-xxl-10">The service we offer is specifically designed to meet your needs.</h3>
+                </div>
+                <!-- /column -->
+              </div>
+              <!-- /.row -->
+              <div class="row gx-lg-8 gx-xl-12 gy-11 px-xxl-5 text-center d-flex align-items-end info-pg">
+                <div class="col-lg-4">
+                  <div class="px-md-15 px-lg-3">
+                    <figure class="mb-6"><i class="fa-regular fa-face-smile"></i></figure>
+                    <!-- <i class="fa-regular fa-face-smile"></i> -->
+                    <h3>Easy</h3>
+                    <p class="mb-2">Simplify election set-up and results delivery, reduce administration costs and increase voter participation. Manage your election with an easy to use dashboard and fantastic 24/7 support.</p>
+                    <a href="#" class="more hover">Learn More</a>
+                  </div>
+                  <!--/.px -->
+                </div>
+                <!--/column -->
+                <div class="col-lg-4">
+                  <div class="px-md-15 px-lg-3">
+                    <figure class="mb-6"><i class="fa-solid fa-award"></i></figure>
+                    <h3>Proven</h3>
+                    <p class="mb-2">Our flexible and feature rich system can meet the most complex election needs, including yours.</p>
+                    <a href="#" class="more hover">Learn More</a>
+                  </div>
+                  <!--/.px -->
+                </div>
+                <!--/column -->
+                <div class="col-lg-4">
+                  <div class="px-md-15 px-lg-3">
+                    <figure class="mb-6"><i class="fa-solid fa-lock"></i></figure>
+                    <h3>Secure</h3>
+                    <p class="mb-2">Your data is secure, backed-up, tamper-proof and protected. We use the highest security standards and vote count verification protocol. Voters can only vote once.</p>
+                    <a href="#" class="more hover">Learn More</a>
+                  </div>
+                  <!--/.px -->
+                </div>
+                <!--/column -->
+              </div>
+              <!--/.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+
+        <section id="feature" class="wrapper bg-soft-primary h-21 mb-15">
+            <div class="row align-items-center justify-content-center text-center align-middle feature-vt">
+                <h2>Make your decision-making process modern, secure, and effective.</h2>
+                <p>Upgrade from manually counting ballots to an online election system without sacrificing the integrity of your vote</p>
+                <span><a href="{% url 'register' %}" class="btn btn-lg btn-primary rounded-pill me-2">Register</a></span>
+            </div>
+        </section>
+        <!-- section -->
+        <section id="feature" class="wrapper">
+            <div class="container pb-14 pb-md-12">
+                <div class="row text-center mb-12">
+                    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 info">
+                      <h3 class="display-3 mb-4 px-xxl-10">An online voting system with your needs at the forefront.</h3>
+                      <p>From secure polling software to the management of complex virtual voting events - we offer a range of online voting software options that exceed expectation.</p>
+                    </div>
+                    <!-- /column -->
+                </div>
+                <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                    <div class="col-lg-6">
+                        <figure class="mb-6"><img class="fect" src="{% static 'images/settings.png' %}" srcset="" alt="" /></figure>
+                        <h3 class="display-3 fs-24 fw-bold mb-5">A reliable online voting tool for your group</h3>
+                        <div class="accordion accordion-wrapper" id="accordionExample">
+                            <div class="card plain accordion-item">
+                            <!--/.card-header -->
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="card-body">
+                                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.</p>
+                                    </div>
+                                <!--/.card-body -->
+                            </div>
+                            <!--/.accordion-collapse -->
+                            </div>
+                            <!--/.accordion-item -->
+                        </div>
+                        <!--/.accordion -->
+                    </div>
+                    <!--/column -->
+                    <div class="col-lg-6">
+                        <figure class="mb-6"><img class="fect" src="{% static 'images/tick1.svg' %}" srcset="" alt="" /></figure>
+                        <h3 class="display-3 mb-5 fs-24 fw-bold">Key electronic voting features</h3>
+                        <div class="accordion accordion-wrapper" id="accordionExample">
+                            <div class="card plain accordion-item">
+                            <!--/.card-header -->
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="card-body">
+                                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.</p>
+                                    </div>
+                                <!--/.card-body -->
+                            </div>
+                            <!--/.accordion-collapse -->
+                            </div>
+                            <!--/.accordion-item -->
+                        </div>
+                        <!--/.accordion -->
+                    </div>
+
+                </div>
+              <!--/.row -->
+            </div>
+            <div class="container pb-14 pb-md-12">
+                <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                    <div class="col-lg-6">
+                        <figure class="mb-6"><img class="fect" src="{% static 'images/tick2.png' %}" srcset="" alt="" /></figure>
+                        <h3 class="display-3 mb-5 fs-24 fw-bold">Web app-based voting platform</h3>
+                        <div class="accordion accordion-wrapper" id="accordionExample">
+                            <div class="card plain accordion-item">
+                            <!--/.card-header -->
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="card-body">
+                                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.</p>
+                                    </div>
+                                <!--/.card-body -->
+                            </div>
+                            <!--/.accordion-collapse -->
+                            </div>
+                            <!--/.accordion-item -->
+                        </div>
+                        <!--/.accordion -->
+                    </div>
+                    <!--/column -->
+                    <div class="col-lg-6">
+                        <figure class="mb-6"><img class="fect" src="{% static 'images/icon-voter.svg' %}" srcset="" alt="" /></figure>
+                        <h3 class="display-3 mb-5 fs-24 fw-bold">A pleasant way to cast votes</h3>
+                        <div class="accordion accordion-wrapper" id="accordionExample">
+                            <div class="card plain accordion-item">
+                            <!--/.card-header -->
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="card-body">
+                                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.</p>
+                                    </div>
+                                <!--/.card-body -->
+                            </div>
+                            <!--/.accordion-collapse -->
+                            </div>
+                            <!--/.accordion-item -->
+                        </div>
+                        <!--/.accordion -->
+                    </div>
+
+                </div>
+              <!--/.row -->
+            </div>
+            <div class="container pb-14 pb-md-12">
+                <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                    <div class="col-lg-6">
+                        <figure class="mb-6"><img class="fect" src="{% static 'images/tick3.svg' %}" srcset="" alt="" /></figure>
+                        <h3 class="display-3 mb-5 fs-24 fw-bold">Flexible implementation options</h3>
+                        <div class="accordion accordion-wrapper" id="accordionExample">
+                            <div class="card plain accordion-item">
+                            <!--/.card-header -->
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="card-body">
+                                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.</p>
+                                    </div>
+                                <!--/.card-body -->
+                            </div>
+                            <!--/.accordion-collapse -->
+                            </div>
+                            <!--/.accordion-item -->
+                        </div>
+                        <!--/.accordion -->
+                    </div>
+                    <!--/column -->
+                    <div class="col-lg-6">
+                        <figure class="mb-6"><img class="fect" src="{% static 'images/tick4.svg' %}" srcset="" alt="" /></figure>
+                        <h3 class="display-3 mb-5 fs-24 fw-bold">Online election system integrations</h3>
+                        <div class="accordion accordion-wrapper" id="accordionExample">
+                            <div class="card plain accordion-item">
+                            <!--/.card-header -->
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="card-body">
+                                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.</p>
+                                    </div>
+                                <!--/.card-body -->
+                            </div>
+                            <!--/.accordion-collapse -->
+                            </div>
+                            <!--/.accordion-item -->
+                        </div>
+                        <!--/.accordion -->
+                    </div>
+
+                </div>
+              <!--/.row -->
+            </div>
+
+        </section>
+        <!-- section -->
+        <section id="solution" class="wrapper bg-gradient-primary">
+            <div class="container py-10 py-md-12">
+              <div class="row text-center mb-10">
+                <div class="col-md-10 col-lg-9 col-xxl-8 mx-auto info">
+                  <h3 class="display-3 px-xl-10 mb-0">Conduct your votes and elections with confidence.</h3>
+                </div>
+                <!-- /column -->
+              </div>
+              <!-- /.row -->
+              <div class="row gx-lg-0 gy-10 mb-15 mb-md-17 align-items-center">
+                <div class="col-lg-6">
+                  <figure class="rounded mb-0 shadow-lg w-30 h-30"><img class="img-fluid" src="{% static 'assets/img/illustrations/ui1.png' %}" srcset="" alt="" /></figure>
+                </div>
+                <!--/column -->
+                <div class="col-lg-5 ms-auto all-round-border gap-3">
+                  <h3 class="fs-28 mb-3">Accessibility</h3>
+                  <p>Online voting software means that your voters will cast votes from their mobile devices or computer, wherever is easiest.</p>
+                  <ul class="icon-list bullet-bg bullet-soft-primary">
+                    <li><span><i class="uil uil-check"></i></span><span>Aenean quam ornare curabitur blandit.</span></li>
+                    <li><span><i class="uil uil-check"></i></span><span>Nullam quis risus eget urna mollis ornare leo.</span></li>
+                    <li><span><i class="uil uil-check"></i></span><span>Etiam porta euismod mollis natoque ornare.</span></li>
+                  </ul>
+                </div>
+                <!--/column -->
+              </div>
+              <!--/.row -->
+              <div class="row gx-lg-0 gy-10 mb-15 mb-md-17 align-items-center">
+                <div class="col-lg-6 order-lg-2 ms-auto">
+                  <figure class="rounded mb-0 shadow-lg"><img class="img-fluid" src="{% static 'assets/img/illustrations/ui1.png' %}" srcset="{% static 'assets/img/illustrations/ui1@2x.png 2x' %}" alt="" /></figure>
+                </div>
+                <!--/column -->
+                <div class="col-lg-5">
+                  <h3 class="fs-28 mb-3">Voting Auditing</h3>
+                  <p>We provide the documentation you need to be transparent for high-level legal and regulatory requirements. Or for simple, but potentially contentious votes.</p>
+                  <ul class="icon-list bullet-bg bullet-soft-primary">
+                    <li><span><i class="uil uil-check"></i></span><span>Aenean quam ornare curabitur blandit.</span></li>
+                    <li><span><i class="uil uil-check"></i></span><span>Nullam quis risus eget urna mollis ornare leo.</span></li>
+                    <li><span><i class="uil uil-check"></i></span><span>Etiam porta euismod mollis natoque ornare.</span></li>
+                  </ul>
+                  <!-- <a href="#" class="btn btn-soft-primary rounded-pill mt-2 mb-0">More Details</a> -->
+                </div>
+                <!--/column -->
+              </div>
+              <!--/.row -->
+              <div class="row gx-lg-0 gy-10 align-items-center">
+                <div class="col-lg-6">
+                  <figure class="rounded mb-0 shadow-lg"><img class="img-fluid" src="{% static 'assets/img/illustrations/ui5.png' %}" srcset="{% static 'assets/img/illustrations/ui5@2x.png 2x' %}" alt="" /></figure>
+                </div>
+                <!--/column -->
+                <div class="col-lg-5 ms-auto">
+                  <h3 class="fs-28 mb-3">Robust Analystics & Reporting</h3>
+                  <p>Real-time analytics show how your votes and election results unfold. Detailed reporting options allow you to share outcomes with interested parties.</p>
+                  <ul class="icon-list bullet-bg bullet-soft-primary">
+                    <li><span><i class="uil uil-check"></i></span><span>Aenean quam ornare curabitur blandit.</span></li>
+                    <li><span><i class="uil uil-check"></i></span><span>Nullam quis risus eget urna mollis ornare leo.</span></li>
+                    <li><span><i class="uil uil-check"></i></span><span>Etiam porta euismod mollis natoque ornare.</span></li>
+                  </ul>
+                </div>
+                <!--/column -->
+              </div>
+              <!--/.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+
+        <footer class="bg-dark text-inverse">
+            <div class="container py-8 py-md-8">
+              <div class="row gy-6 gy-lg-0">
+                <div class="col-md-12 col-lg-9">
+                  <div class="widget">
+                    <h1 class="widget-title text-white mb-3">Your Number One Choice for Secure Voting</h1>
+                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, repellat.</p>
+
+                    <!-- /.newsletter-wrapper -->
+                  </div>
+                  <!-- /.widget -->
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <a href="{% url 'login' %}" class="btn btn-blue rounded-pill mt-2 mb-0 w-20">Vote Now</a>
+                    <!-- /.widget -->
+                </div>
+                <!-- /column -->
+              </div>
+              <!--/.row -->
+            </div>
+            <!-- /.container -->
+        </footer>
+
+    </div>
+
+
+
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+    <script src="{% static 'assets/js/plugins.js' %}"></script>
+
+</body>
+</html>
